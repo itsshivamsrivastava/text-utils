@@ -40,10 +40,11 @@ export default function TextForm(props) {
     }
 
     const handleCopyText = () => {
-        var originalText = document.getElementById('myBox');
-        originalText.select();
-        navigator.clipboard.writeText(originalText.value);
-        document.getSelection().removeAllRanges();
+        // var originalText = document.getElementById('myBox');
+        // originalText.select();
+        // navigator.clipboard.writeText(originalText.value);
+        navigator.clipboard.writeText(text);
+        // document.getSelection().removeAllRanges();
         props.showAlert("Text is Successfully Copied!", "success");
     }
 
@@ -87,7 +88,7 @@ export default function TextForm(props) {
                 <h1 className="mb-4" style={{ color: props.mode === 'light' ? '#212529' : 'white' }}>Your Text Summary</h1>
                     <h5 style={{ color: props.mode === 'light' ? '#212529' : 'white' }}>Word & Character Count</h5>
                 <p className='wordCountPara my-4'>
-                    Total words are <b>{text.split(" ").filter((element)=>{return element.length!==0}).length} words</b> and total characters are <b>{text.length} characters</b>
+                    Total words are <b>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words</b> and total characters are <b>{text.length} characters</b>
                 </p>
                     <h5 style={{ color: props.mode === 'light' ? '#212529' : 'white' }}>Expacted Time For Reading</h5>
                 <p className='wordCountPara'>
